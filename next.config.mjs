@@ -1,9 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   env: {
-    NEXT_PUBLIC_SUPABASE_URL: process.env.NEXT_PUBLIC_SUPABASE_URL,
-    NEXT_PUBLIC_SUPABASE_ANON_KEY: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
-    NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
+    NEXT_PUBLIC_SUPABASE_URL:
+      process.env.NEXT_PUBLIC_SUPABASE_URL ||
+      "https://vrvvwmtqmhmiquynafcv.supabase.co",
+    NEXT_PUBLIC_SUPABASE_ANON_KEY:
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ||
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZydnZ3bXRxbWhtaXF1eW5hZmN2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODcxMTYyOTQsImV4cCI6MjEwMjY5MjI5NH0.-65inUMlJQydxzYufZZdSPsAJ-zS_cf6LxnLqLYKPaY",
+    NEXT_PUBLIC_APP_URL:
+      process.env.NEXT_PUBLIC_APP_URL ||
+      "https://oshitanowa.6029-2026-337.workers.dev",
   },
 };
 
