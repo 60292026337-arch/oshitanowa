@@ -6,9 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
-    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy"
+    "lint": "next lint"
   },
   "dependencies": {
     "next": "^15.5.0",
@@ -28,8 +26,6 @@
     "tailwindcss": "^3.4.1",
     "eslint": "^8",
     "eslint-config-next": "^15.5.0",
-    "autoprefixer": "^10.0.1",
-    "@opennextjs/cloudflare": "^1.4.0",
-    "wrangler": "^4.0.0"
+    "autoprefixer": "^10.0.1"
   }
 }
