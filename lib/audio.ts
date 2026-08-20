@@ -22,80 +22,23 @@ function createGain(ctx: AudioContext, value: number): GainNode {
 }
 
 // ─────────────────────────────────────────────
-// 1. ドラムロール（duration 秒、だんだん激しくなる）
+// 1. ドラムロール（SE114.mp3 を再生）
 // ─────────────────────────────────────────────
-let drumRollStop: (() => void) | null = null;
+let drumAudio: HTMLAudioElement | null = null;
 
-export function playDrumRoll(duration = 3.0): void {
+export function playDrumRoll(_duration = 3.0): void {
   stopDrumRoll();
-
-  const ctx = getAudioContext();
-  const masterGain = createGain(ctx, 0.0);
-  masterGain.connect(ctx.destination);
-
-  // スネア用ノイズバッファ（40ms）
-  const bufSize = ctx.sampleRate * 0.04;
-  const noiseBuf = ctx.createBuffer(1, bufSize, ctx.sampleRate);
-  const data = noiseBuf.getChannelData(0);
-  for (let i = 0; i < bufSize; i++) data[i] = Math.random() * 2 - 1;
-
-  const filter = ctx.createBiquadFilter();
-  filter.type = "bandpass";
-  filter.frequency.value = 180;
-  filter.Q.value = 0.7;
-  filter.connect(masterGain);
-
-  const startTime = ctx.currentTime;
-  let stopped = false;
-
-  masterGain.gain.setValueAtTime(0, startTime);
-  masterGain.gain.linearRampToValueAtTime(0.6, startTime + 0.3);
-  masterGain.gain.linearRampToValueAtTime(0.85, startTime + duration - 0.2);
-  masterGain.gain.linearRampToValueAtTime(0, startTime + duration);
-
-  let nextBeat = startTime;
-  const initInterval = 0.25;
-  const finalInterval = 0.04;
-
-  function schedule() {
-    if (stopped) return;
-    const now = ctx.currentTime;
-    const progress = Math.min((now - startTime) / duration, 1.0);
-    const interval = initInterval * Math.pow(finalInterval / initInterval, progress);
-
-    while (nextBeat < now + 0.15) {
-      if (nextBeat >= startTime + duration) break;
-      const src = ctx.createBufferSource();
-      src.buffer = noiseBuf;
-      const bg = createGain(ctx, 0);
-      bg.gain.setValueAtTime(0.001, nextBeat);
-      bg.gain.exponentialRampToValueAtTime(1.0, nextBeat + 0.002);
-      bg.gain.exponentialRampToValueAtTime(0.001, nextBeat + 0.035);
-      src.connect(bg);
-      bg.connect(filter);
-      src.start(nextBeat);
-      src.stop(nextBeat + 0.04);
-      nextBeat += interval;
-    }
-
-    if (nextBeat < startTime + duration) requestAnimationFrame(schedule);
-  }
-
-  schedule();
-
-  drumRollStop = () => {
-    stopped = true;
-    try {
-      masterGain.gain.cancelScheduledValues(ctx.currentTime);
-      masterGain.gain.linearRampToValueAtTime(0, ctx.currentTime + 0.05);
-    } catch { /* ignore */ }
-  };
-
-  setTimeout(() => { drumRollStop = null; }, duration * 1000 + 200);
+  drumAudio = new Audio("/SE114.mp3");
+  drumAudio.loop = false;
+  drumAudio.play().catch(() => { /* autoplay policy などで再生できない場合は無視 */ });
 }
 
 export function stopDrumRoll(): void {
-  if (drumRollStop) { drumRollStop(); drumRollStop = null; }
+  if (drumAudio) {
+    drumAudio.pause();
+    drumAudio.currentTime = 0;
+    drumAudio = null;
+  }
 }
 
 // ─────────────────────────────────────────────

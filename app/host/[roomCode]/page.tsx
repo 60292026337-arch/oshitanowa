@@ -334,7 +334,7 @@ export default function HostPage() {
               className={`btn-3d py-5 text-white text-xl font-black
                 disabled:opacity-40 disabled:cursor-not-allowed
                 ${isRevealing
-                  ? "bg-orange-500 animate-drum-flash"
+                  ? "bg-orange-500"
                   : "bg-gradient-to-r from-orange-500 to-red-500"
                 }`}
               style={{ boxShadow: "0 7px 0 #c2410c" }}
