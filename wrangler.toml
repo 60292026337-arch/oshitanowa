@@ -1,0 +1,6 @@
+name = "oshitanowa"
+compatibility_date = "2024-07-01"
+compatibility_flags = ["nodejs_compat"]
+
+# Next.js のビルド成果物を Pages として配信
+pages_build_output_dir = ".next"
