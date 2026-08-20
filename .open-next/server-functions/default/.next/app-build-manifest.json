@@ -1,0 +1,47 @@
+{
+  "pages": {
+    "/_not-found/page": [
+      "static/chunks/webpack-1017649d66d1259f.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-87552e6e05b8e3aa.js",
+      "static/chunks/main-app-4bb9517f5682343c.js",
+      "static/chunks/app/_not-found/page-4f7da5ddaf0bd0b9.js"
+    ],
+    "/layout": [
+      "static/chunks/webpack-1017649d66d1259f.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-87552e6e05b8e3aa.js",
+      "static/chunks/main-app-4bb9517f5682343c.js",
+      "static/css/983d14951c9f0f4c.css",
+      "static/chunks/app/layout-669732fa52dfbe7b.js"
+    ],
+    "/play/[roomCode]/page": [
+      "static/chunks/webpack-1017649d66d1259f.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-87552e6e05b8e3aa.js",
+      "static/chunks/main-app-4bb9517f5682343c.js",
+      "static/chunks/44530001-f5212f80b137756d.js",
+      "static/chunks/376-a80ec6f6a8108113.js",
+      "static/chunks/app/play/[roomCode]/page-fac360b3884cac0c.js"
+    ],
+    "/host/[roomCode]/page": [
+      "static/chunks/webpack-1017649d66d1259f.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-87552e6e05b8e3aa.js",
+      "static/chunks/main-app-4bb9517f5682343c.js",
+      "static/chunks/44530001-f5212f80b137756d.js",
+      "static/chunks/376-a80ec6f6a8108113.js",
+      "static/chunks/957-01c28a1f1b708c06.js",
+      "static/chunks/app/host/[roomCode]/page-877ac8814602d358.js"
+    ],
+    "/page": [
+      "static/chunks/webpack-1017649d66d1259f.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-87552e6e05b8e3aa.js",
+      "static/chunks/main-app-4bb9517f5682343c.js",
+      "static/chunks/44530001-f5212f80b137756d.js",
+      "static/chunks/376-a80ec6f6a8108113.js",
+      "static/chunks/app/page-3626b270628b4cb8.js"
+    ]
+  }
+}
